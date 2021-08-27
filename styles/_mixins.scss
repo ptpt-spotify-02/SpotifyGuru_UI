@@ -1,0 +1,16 @@
+@import "variables";
+
+@mixin background-gradient() {
+  background: linear-gradient(
+    45deg,
+    $background-gradient-color1,
+    $background-gradient-color2,
+    $background-gradient-color1,
+    $background-gradient-color2);
+}
+
+@mixin desktop() {
+    @media (max-width: 600px) {
+        @content;
+    }
+}

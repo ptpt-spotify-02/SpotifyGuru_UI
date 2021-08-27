@@ -1,0 +1,97 @@
+$content-square: 2rem;
+$content-border-size: 1px;
+$search-font-color: rgb(83, 139, 172);
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 1rem;
+  max-width: 50rem;
+
+  input {
+    width: 100%;
+    height: 2rem;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  width: 100%;
+  background-color: whitesmoke;
+  z-index: 1;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  height: $content-square;
+  background-color: rgb(231, 234, 235);
+  white-space: nowrap;
+  border: $content-border-size;
+  border-color: rgb(49, 49, 49);
+  border-style: solid;
+
+  &:nth-child(even) {
+    background-color: rgb(226, 235, 238);
+  }
+
+  &:hover {
+    background-color: white;
+  }
+
+  .content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    justify-content: left;
+    align-items: center;
+
+    .image {
+      display: inline-block;
+      position: relative;
+      // Need to subtract the size of the image from the border size
+      // So it doesn't render on top of the border
+      min-width: unquote("calc(#{$content-square} - #{$content-border-size * 2})");
+
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+
+    .text-wrapper {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: .3rem;
+
+      .author {
+        color: $search-font-color;
+
+        &:after {
+          content: "-";
+          padding-left: .3rem;
+          padding-right: .3rem;
+        }
+      }
+
+      .title {
+        color: $search-font-color;
+
+        &:after {
+          content: "-";
+          padding-left: .3rem;
+          padding-right: .3rem;
+        }
+      }
+
+      .album {
+        color: $search-font-color;
+      }
+    }
+  }
+}
