@@ -159,7 +159,7 @@ export async function getServerSideProps(context) {
   if (typeof share === 'string') {
     const tracks = share.split('|');
     if (tracks.length > 0) {
-      const res = await axios.post('http://localhost:3000/api/track', { tracks });
+      const res = await axios.post('/api/track', { tracks });
       const data = res.data.tracks;
       selectedSong = data.shift();
       suggestions = data;
